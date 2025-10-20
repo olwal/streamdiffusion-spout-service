@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="streamdiffusion-spout-server",
+    name="streamdiffusion-spout-service",
     version="0.1.0",
-    description="StreamDiffusion Spout server for real-time AI image generation via OSC",
+    description="StreamDiffusion Spout service for real-time AI image generation via OSC",
     author="Alex Olwal",
     author_email="alex@tactam.com",
-    url="https://github.com/olwal/streamdiffusion-spout-server",
+    url="https://github.com/olwal/StreamDiffusionSpoutService",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
@@ -23,7 +23,7 @@ setup(
     python_requires=">=3.9",
     entry_points={
         'console_scripts': [
-            'streamdiffusion-spout-server=main:main',
+            'streamdiffusion-spout-service=main:main',
         ],
     },
     classifiers=[

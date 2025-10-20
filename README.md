@@ -1,10 +1,10 @@
-# StreamDiffusion Spout Server
+# StreamDiffusion Spout Service
 
-Real-time AI image generation server using StreamDiffusion, controllable via OSC and sharing textures via Spout.
+Real-time AI image generation service using StreamDiffusion, controllable via OSC and sharing textures via Spout.
 
 ## Overview
 
-A real-time image generation server using StreamDiffusion, controllable via OSC (Open Sound Control) and communicating via Spout for GPU-accelerated texture sharing.
+A real-time image generation service using StreamDiffusion, controllable via OSC (Open Sound Control) and communicating via Spout for GPU-accelerated texture sharing.
 
 **Platform:** Windows only (requires Spout)
 
@@ -22,7 +22,7 @@ A real-time image generation server using StreamDiffusion, controllable via OSC 
 Client Application (Processing, TouchDesigner, Cinder, etc.)
   ↓ Spout: "SourceImage" (input texture)
   ↓ OSC: /prompt "your prompt here"
-StreamDiffusion Spout Server
+StreamDiffusion Spout Service
   ↓ StreamDiffusion Pipeline (SD-Turbo)
   ↓ Spout: "StreamDiffusion" (generated image)
 Client Application receives & displays
@@ -43,7 +43,7 @@ Client Application receives & displays
 ```
 your-workspace/
   ├── StreamDiffusion/                # Official StreamDiffusion repo
-  └── streamdiffusion-spout-server/   # This server
+  └── streamdiffusion_spout_service/  # This service
 ```
 
 **Steps:**
@@ -61,8 +61,8 @@ your-workspace/
 2. **Clone this repository**
 
    ```bash
-   git clone https://github.com/olwal/streamdiffusion-spout-server.git
-   cd streamdiffusion-spout-server
+   git clone https://github.com/olwal/StreamDiffusionSpoutService.git
+   cd streamdiffusion_spout_service
    ```
 
 3. **Install PyTorch with CUDA support**
@@ -80,7 +80,7 @@ your-workspace/
 
 ## Quick Start
 
-After installation, run the server:
+After installation, run the service:
 
 ```bash
 # If you cloned as siblings (recommended):
@@ -141,7 +141,7 @@ python main.py --model stabilityai/sd-turbo --width 512 --height 512 --osc-port 
 
 ## OSC Commands
 
-Send OSC messages to control the daemon (default port: 7000):
+Send OSC messages to control the service (default port: 7000):
 
 ### Prompt Control
 ```
@@ -228,7 +228,7 @@ python main.py --verbose 2
 ### GPU Out of Memory
 ```bash
 # Use smaller model or reduce batch size
-# Edit diffusion_engine.py: frame_buffer_size=1 (already minimal)
+# Already using minimal frame_buffer_size=1 in diffusion_engine.py
 ```
 
 ### StreamDiffusion Not Found
@@ -246,15 +246,15 @@ python main.py
 # Option 3: Ensure sibling directory structure (default)
 your-workspace/
   ├── StreamDiffusion/
-  └── streamdiffusion-spout-server/
+  └── streamdiffusion_spout_service/
 ```
 
 ## Project Structure
 
 ```
-streamdiffusion-spout-server/
+streamdiffusion_spout_service/
 ├── src/
-│   └── streamdiffusion_spout_server/  # Main package
+│   └── streamdiffusion_spout_service/  # Main package
 │       ├── __init__.py
 │       ├── config.py                  # Configuration & global state
 │       ├── osc_server.py              # OSC command handling
@@ -268,7 +268,7 @@ streamdiffusion-spout-server/
 └── README.md                          # This file
 ```
 
-**Note:** The server dynamically imports `utils/wrapper.py` from the StreamDiffusion repository at runtime (Apache 2.0 license). The path is automatically resolved—no manual setup needed.
+**Note:** The service dynamically imports `utils/wrapper.py` from the StreamDiffusion repository at runtime (Apache 2.0 license). The path is automatically resolved—no manual setup needed.
 
 ## Dependencies & Credits
 

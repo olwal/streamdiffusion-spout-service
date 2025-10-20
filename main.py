@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-StreamDiffusion Spout Server
+StreamDiffusion Spout Service
 Main Entry Point
 """
 
@@ -51,14 +51,14 @@ except SystemExit:
     raise
 
 # Now import our modules (after StreamDiffusion is in path)
-from streamdiffusion_spout_server import config
-from streamdiffusion_spout_server.osc_server import start_osc_server
-from streamdiffusion_spout_server.diffusion_engine import start_diffusion_thread
-from streamdiffusion_spout_server.utils import parse_lora_string
+from streamdiffusion_spout_service import config
+from streamdiffusion_spout_service.osc_server import start_osc_server
+from streamdiffusion_spout_service.diffusion_engine import start_diffusion_thread
+from streamdiffusion_spout_service.utils import parse_lora_string
 
 def main():
-    """Main entry point for the server"""
-    parser = argparse.ArgumentParser(description='StreamDiffusion Spout server')
+    """Main entry point for the service"""
+    parser = argparse.ArgumentParser(description='StreamDiffusion Spout service')
 
     parser.add_argument('--streamdiffusion-path', type=str, default=None,
                         help='Path to StreamDiffusion repository (default: ../StreamDiffusion or $STREAMDIFFUSION_PATH)')
@@ -125,7 +125,7 @@ def main():
     
     try:
         if config.verbose >= 1:
-            print("Starting StreamDiffusion Spout Server...")
+            print("Starting StreamDiffusion Spout Service...")
             print("Note: You may see warnings from PyTorch/Diffusers during startup.")
             print("      Common warnings (safe to ignore):")
             print("      - 'No module named triton' - Triton is optional")
