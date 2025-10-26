@@ -61,7 +61,7 @@ your-workspace/
 2. **Clone this repository**
 
    ```bash
-   git clone https://github.com/olwal/StreamDiffusionSpoutService.git
+   git clone https://github.com/olwal/streamdiffusion-spout-service.git
    cd streamdiffusion_spout_service
    ```
 
